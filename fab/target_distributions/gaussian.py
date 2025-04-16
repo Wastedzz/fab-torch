@@ -27,8 +27,8 @@ class Gaussian(nn.Module, TargetDistribution):
                                                              self.expectation_function,
                                                              true_expectation_estimation_n_samples
                                                                               ))
-        self.device = "cuda" if use_gpu else "cpu"
-        self.to(self.device)
+        # self.device = "cuda" if use_gpu else "cpu"
+        # self.to(self.device)
 
     @property
     def distribution(self):
@@ -37,12 +37,12 @@ class Gaussian(nn.Module, TargetDistribution):
                                                       validate_args=False)
         return dist
 
-    def to(self, device):
-        if device == "cuda":
-            if torch.cuda.is_available():
-                self.cuda()
-        else:
-            self.cpu()
+    # def to(self, device):
+    #     if device == "cuda":
+    #         if torch.cuda.is_available():
+    #             self.cuda()
+    #     else:
+    #         self.cpu()
 
 
     @property
